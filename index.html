@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT: Upgrade the way multiplication is taught - Loïc DAVID, Henry MONT, Tristan GLEHEN, Jean Come CARISSAN</title>
+    <meta name="author" content="Loïc DAVID, Henry MONT, Tristan GLEHEN, Jean Come CARISSAN">
+    <title>PROJECT: Upgrade the way multiplication is taught</title>
     <style>
         /* Handle page organization */
         html, body {
@@ -306,8 +307,6 @@
                 tableBody.appendTo(table);
                 table.appendTo(tableContainer);
             }
-
-            addHighlightLogic();
         }
 
         // Function to generate the standard set of multiplication tables
@@ -328,12 +327,10 @@
                 }
                 tableContainer.append(table);
             }
-
-            addStandardHighlightLogic();
         }
 
         // Function to add a selection highlight on top of table
-        function addHighlightLogic() {
+        function addHighlightLogic(displayMultiplication=false) {
             // Track mouse movements to highlight cells
             $('td').mousemove(function(event) {
                 // Get the index of the cell where the mouse is currently positioned
@@ -344,7 +341,10 @@
                 var multiplicand = maxTableSize - rowIndex;
                 var multiplier = colIndex + 1;
                 var result = multiplicand * multiplier;
-                var multiplication = `${multiplicand} x ${multiplier} = ${result}`;
+                var multiplication = `${result}`;
+                if (displayMultiplication) {
+                    multiplication = `${multiplicand} x ${multiplier} = ${result}`;
+                }
                 $('#multiplication-info').text(multiplication);
 
                 // Remove previous highlight class from all cells
@@ -364,7 +364,7 @@
             });
         }
 
-        function addStandardHighlightLogic() {
+        function addStandardHighlightLogic(displayMultiplication=false) {
             // Track mouse movements to highlight cells
             $('.multiplication-table td').mousemove(function (event) {
                 // Remove previous highlight class from all inner cells
@@ -375,6 +375,10 @@
 
                 // Write multiplication in result box
                 var multiplication = $(this).text();
+                if (!displayMultiplication) {
+                    var multiplicationElements = multiplication.split(' ');
+                    multiplication = multiplicationElements[multiplicationElements.length - 1];
+                }
                 $('#multiplication-info').text(multiplication);
             });
 
@@ -515,8 +519,10 @@
             if (questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'click') {
                 if (!experimentalMultiplicationMod) {
                     generateStandardMultiplicationTables();
+                    addStandardHighlightLogic(questionData.inputType == 'discovery');
                 } else {
                     generateTable(false, maxTableSize, maxTableSize);
+                    addHighlightLogic(questionData.inputType == 'discovery');
                 }
             }
 
