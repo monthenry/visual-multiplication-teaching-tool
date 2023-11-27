@@ -249,6 +249,157 @@
             nextFormSection();
         });
 
+        // Function to show the current form section
+        function nextFormSection() {
+            // Get the result from the current section
+            var result = experimentalMultiplicationMod;
+            var inputField = $('#result-field');
+            if (inputField.length > 0) {
+                if (questionsData[currentSection].inputType == 'click') {
+                    result = inputField.data('value');
+                } else {
+                    result = inputField.val();
+                }
+            }
+
+            // Save user data for the current section
+            userData['Question' + currentSection] = { answer: result, time: (performance.now() - startTime) / 1000 };
+            // Save user data to cookies
+            console.log(userData);
+            
+            // Start next question
+            currentSection++;
+            clearPage();
+            generateForm(questionsData[currentSection], currentSection);
+            startTime = performance.now();
+        }
+
+        // Function to create the current form and append it to page
+        function generateForm(questionData, index) {
+            var formContainer = $('#form-container');
+
+            // Create a new form section
+            const section = $('<div class="form-section"></div>').css('display', 'block');
+
+            // Create form question
+            const questionContainer = $('<div class="form-question"></div>');
+
+            // Create heading
+            const heading = $('<h3></h3>').text(questionData.question);
+            questionContainer.append(heading);
+
+            // If experiment over, create and display final page
+            if (questionData.inputType == 'final') {
+                questionContainer.append($('<h3>THE EXPERIMENT IS OVER</h3>'));
+                questionContainer.append($('<div>SAVE THE RESULT TO YOUR COMPUTER AND UPLOAD IT USING THIS DROPBOX LINK (use a fake name and email on the dropbox page): </div>'));
+
+                const buttonsDiv = $('<div></div>');
+                const saveButton = $('<button class="save-button">SAVE</button>');
+                saveButton.on('click', function () {
+                    downloadResults();
+                });
+                const uploadButton = $('<button class="upload-button">UPLOAD RESULT</button>');
+                uploadButton.on('click', function () {
+                    window.open(dropboxLink, '_blank');
+                });
+                
+                buttonsDiv.append(saveButton);
+                buttonsDiv.append(uploadButton);
+                questionContainer.append(buttonsDiv);
+                section.append(questionContainer);
+                formContainer.append(section);
+
+                return;
+            }
+
+            // Create input
+            if (questionData.inputType == 'introduction' || questionData.inputType == 'text' || questionData.inputType == 'test') {
+                const label = $('<label></label>').text('Answer:');
+                questionContainer.append(label);
+                const input = $('<input type="text" id="result-field">');
+                questionContainer.append(input);
+            }
+
+            if (questionData.inputType == 'degree') {
+                const labelContainer = $('<div></div>');
+                const selectContainer = $('<div></div>');
+
+                const label = $('<label></label>').text('Select Answer:');
+                labelContainer.append(label);
+
+                const select = $('<select id="result-field"></select>');
+                select.append($('<option value="no answer">Prefers not to answer</option>'));
+                select.append($('<option value="high-school">High School</option>'));
+                select.append($('<option value="associate">Associate Degree</option>'));
+                select.append($('<option value="bachelors">Bachelor\'s Degree</option>'));
+                select.append($('<option value="masters">Master\'s Degree or higher</option>'));
+                selectContainer.append(select);
+
+                questionContainer.append(labelContainer);
+                questionContainer.append(selectContainer);
+            }
+
+            if (questionData.inputType == 'yesno') {
+                // Create container divs for the yesno elements
+                const labelContainer = $('<div></div>');
+                const selectContainer = $('<div></div>');
+
+                const label = $('<label></label>').text('Select Answer:');
+                labelContainer.append(label);
+
+                const select = $('<select id="result-field"></select>');
+                select.append($('<option value="no answer">Prefers not to answer</option>'));
+                select.append($('<option value="stem">Yes</option>'));
+                select.append($('<option value="not stem">No</option>'));
+                selectContainer.append(select);
+
+                // Append the container divs to the main question container
+                questionContainer.append(labelContainer);
+                questionContainer.append(selectContainer);
+            }
+
+            if (questionData.inputType == 'discovery' && experimentalMultiplicationMod == true) {
+                questionContainer.append($('<div>Look at the dots, their quantity is equal to the product of the multiplication !</div>'));
+            }
+
+            // Create multiplication result box
+            if (questionData.inputType == 'discovery' || questionData.inputType == 'click') {
+                const resultContainer = $('<div class="result-container"></div>');
+                const resultBox = $('<div class="result-box"></div>');
+                const multiplicationInfo = $('<div id="multiplication-info"></div>');
+                resultBox.append(multiplicationInfo);
+                resultContainer.append(resultBox);
+                questionContainer.append(resultContainer);
+            }
+
+            // Create Next button
+            if (questionData.inputType == 'introduction' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno') {
+                const button = $('<button class="next-button">Next</button>').on('click', function () {
+                    nextFormSection();
+                });
+                questionContainer.append(button);
+            }
+
+            // Generate table corresponding to the form
+            if (questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'click') {
+                if (!experimentalMultiplicationMod) {
+                    generateStandardMultiplicationTables();
+                    addStandardHighlightLogic(questionData.inputType == 'discovery');
+                } else {
+                    generateTable(false, maxTableSize, maxTableSize);
+                    addHighlightLogic(questionData.inputType == 'discovery');
+                }
+            }
+
+            if (questionData.inputType == 'click') {
+                addClickLogic();
+            }
+
+            // Append the section to the form container
+            section.append(questionContainer);
+            formContainer.append(section);
+        }
+
         function clearPage() {
             // Remove forms and tables
             $('#table-container').empty();
@@ -407,157 +558,6 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-        }
-
-        // Function to create the current form and append it to page
-        function generateForm(questionData, index) {
-            var formContainer = $('#form-container');
-
-            // Create a new form section
-            const section = $('<div class="form-section"></div>').css('display', 'block');
-
-            // Create form question
-            const questionContainer = $('<div class="form-question"></div>');
-
-            // Create heading
-            const heading = $('<h3></h3>').text(questionData.question);
-            questionContainer.append(heading);
-
-            // If experiment over, create and display final page
-            if (questionData.inputType == 'final') {
-                questionContainer.append($('<h3>THE EXPERIMENT IS OVER</h3>'));
-                questionContainer.append($('<div>SAVE THE RESULT TO YOUR COMPUTER AND UPLOAD IT USING THIS DROPBOX LINK (use a fake name and email on the dropbox page): </div>'));
-
-                const buttonsDiv = $('<div></div>');
-                const saveButton = $('<button class="save-button">SAVE</button>');
-                saveButton.on('click', function () {
-                    downloadResults();
-                });
-                const uploadButton = $('<button class="upload-button">UPLOAD RESULT</button>');
-                uploadButton.on('click', function () {
-                    window.open(dropboxLink, '_blank');
-                });
-                
-                buttonsDiv.append(saveButton);
-                buttonsDiv.append(uploadButton);
-                questionContainer.append(buttonsDiv);
-                section.append(questionContainer);
-                formContainer.append(section);
-
-                return;
-            }
-
-            // Create input
-            if (questionData.inputType == 'introduction' || questionData.inputType == 'text' || questionData.inputType == 'test') {
-                const label = $('<label></label>').text('Answer:');
-                questionContainer.append(label);
-                const input = $('<input type="text" id="result-field">');
-                questionContainer.append(input);
-            }
-
-            if (questionData.inputType == 'degree') {
-                const labelContainer = $('<div></div>');
-                const selectContainer = $('<div></div>');
-
-                const label = $('<label></label>').text('Select Answer:');
-                labelContainer.append(label);
-
-                const select = $('<select id="result-field"></select>');
-                select.append($('<option value="no answer">Prefers not to answer</option>'));
-                select.append($('<option value="high-school">High School</option>'));
-                select.append($('<option value="associate">Associate Degree</option>'));
-                select.append($('<option value="bachelors">Bachelor\'s Degree</option>'));
-                select.append($('<option value="masters">Master\'s Degree or higher</option>'));
-                selectContainer.append(select);
-
-                questionContainer.append(labelContainer);
-                questionContainer.append(selectContainer);
-            }
-
-            if (questionData.inputType == 'yesno') {
-                // Create container divs for the yesno elements
-                const labelContainer = $('<div></div>');
-                const selectContainer = $('<div></div>');
-
-                const label = $('<label></label>').text('Select Answer:');
-                labelContainer.append(label);
-
-                const select = $('<select id="result-field"></select>');
-                select.append($('<option value="no answer">Prefers not to answer</option>'));
-                select.append($('<option value="stem">Yes</option>'));
-                select.append($('<option value="not stem">No</option>'));
-                selectContainer.append(select);
-
-                // Append the container divs to the main question container
-                questionContainer.append(labelContainer);
-                questionContainer.append(selectContainer);
-            }
-
-            if (questionData.inputType == 'discovery' && experimentalMultiplicationMod == true) {
-                questionContainer.append($('<div>Look at the dots, their quantity is equal to the product of the multiplication !</div>'));
-            }
-
-            // Create multiplication result box
-            if (questionData.inputType == 'discovery' || questionData.inputType == 'click') {
-                const resultContainer = $('<div class="result-container"></div>');
-                const resultBox = $('<div class="result-box"></div>');
-                const multiplicationInfo = $('<div id="multiplication-info"></div>');
-                resultBox.append(multiplicationInfo);
-                resultContainer.append(resultBox);
-                questionContainer.append(resultContainer);
-            }
-
-            // Create Next button
-            if (questionData.inputType == 'introduction' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno') {
-                const button = $('<button class="next-button">Next</button>').on('click', function () {
-                    nextFormSection();
-                });
-                questionContainer.append(button);
-            }
-
-            // Generate table corresponding to the form
-            if (questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'click') {
-                if (!experimentalMultiplicationMod) {
-                    generateStandardMultiplicationTables();
-                    addStandardHighlightLogic(questionData.inputType == 'discovery');
-                } else {
-                    generateTable(false, maxTableSize, maxTableSize);
-                    addHighlightLogic(questionData.inputType == 'discovery');
-                }
-            }
-
-            if (questionData.inputType == 'click') {
-                addClickLogic();
-            }
-
-            // Append the section to the form container
-            section.append(questionContainer);
-            formContainer.append(section);
-        }
-
-        // Function to show the current form section
-        function nextFormSection() {
-            // Get the result from the current section
-            var result = experimentalMultiplicationMod;
-            var inputField = $('#result-field');
-            if (inputField.length > 0) {
-                if (questionsData[currentSection].inputType == 'click') {
-                    result = inputField.data('value');
-                } else {
-                    result = inputField.val();
-                }
-            }
-
-            // Save user data for the current section
-            userData['Question' + currentSection] = { answer: result, time: (performance.now() - startTime) / 1000 };
-            // Save user data to cookies
-            console.log(userData);
-            
-            // Start next question
-            currentSection++;
-            clearPage();
-            generateForm(questionsData[currentSection], currentSection);
-            startTime = performance.now();
         }
     </script>
 </body>
