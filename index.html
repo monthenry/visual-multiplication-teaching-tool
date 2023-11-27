@@ -296,10 +296,6 @@
                         cell.addClass('bolder-column');
                     }
 
-                    // Add hover effect to show the multiplication result
-                    cell.on('mouseenter', createMouseEnterHandler(product, cell));
-                    cell.on('mouseleave', createMouseLeaveHandler(defaultCell, cell));
-
                     cell.data('value', product.toString());
 
                     cell.appendTo(row)
@@ -312,21 +308,6 @@
             }
 
             addHighlightLogic();
-
-            // Function to create a mouseenter handler
-            function createMouseEnterHandler(product, cell) {
-                return function () {
-                    cell.html(product);
-                };
-            }
-
-            // Function to create a mouseleave handler
-            function createMouseLeaveHandler(defaultCell, cell) {
-                return function () {
-                    // Reset the cell text on mouseout
-                    cell.html(defaultCell);
-                };
-            }
         }
 
         // Function to generate the standard set of multiplication tables
@@ -506,6 +487,10 @@
                 // Append the container divs to the main question container
                 questionContainer.append(labelContainer);
                 questionContainer.append(selectContainer);
+            }
+
+            if (questionData.inputType == 'discovery' && experimentalMultiplicationMod == true) {
+                questionContainer.append($('<div>Look at the dots, their quantity is equal to the product of the multiplication !</div>'));
             }
 
             // Create multiplication result box
