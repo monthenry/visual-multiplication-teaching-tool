@@ -191,50 +191,51 @@
         const dropboxLink = "https://www.dropbox.com/request/ElySqE7dR6jQqtkzEKCZ";
         const maxTableSize = 12;
         const questionsData = [
-            { question: 'How old are you?', inputType: 'introduction' },
+            { question: 'Experiment: Upgrading the way multiplication is taught', inputType: 'introduction' },
+            { question: 'How old are you?', inputType: 'age' },
             { question: 'What is your highest level of education?', inputType: 'degree' },
             { question: 'Did you study in STEM (science, technology, engineering, and mathematics)?', inputType: 'yesno' },
             { question: 'Look at the multiplication table, move your mouse across it and get familiar with it for the next minute.', inputType: 'discovery' },
-            { question: 'Click on the product: 5 x 8 = ?', inputType: 'click' },
-            { question: 'Click on the product: 4 x 7 = ?', inputType: 'click' },
-            { question: 'Click on the product: 8 x 6 = ?', inputType: 'click' },
-            { question: 'Click on the product: 9 x 4 = ?', inputType: 'click' },
-            { question: 'Click on the product: 6 x 7 = ?', inputType: 'click' },
-            { question: 'Write the product: 4 x 3 = ?', inputType: 'text' },
-            { question: 'Write the product: 5 x 5 = ?', inputType: 'text' },
-            { question: 'Write the product: 7 x 9 = ?', inputType: 'text' },
-            { question: 'Write the product: 8 x 8 = ?', inputType: 'text' },
-            { question: 'Write the product: 10 x 6 = ?', inputType: 'text' },
-            { question: 'Click on the multiplication that equals 42?', inputType: 'click' },
-            { question: 'Click on the multiplication that equals 36?', inputType: 'click' },
-            { question: 'Click on the multiplication that equals 54?', inputType: 'click' },
-            { question: 'Click on the multiplication that equals 64?', inputType: 'click' },
-            { question: 'Click on the multiplication that equals 60?', inputType: 'click' },
-            { question: 'Write the multiplier: 5 x ? = 45', inputType: 'text' },
-            { question: 'Write the multiplier: 7 x ? = 56', inputType: 'text' },
-            { question: 'Write the multiplier: 9 x ? = 63', inputType: 'text' },
-            { question: 'Write the multiplier: 8 x ? = 72', inputType: 'text' },
-            { question: 'Write the multiplier: 9 x ? = 81', inputType: 'text' },
-            { question: 'Write the product: 13 x 3 = ?', inputType: 'test' },
-            { question: 'Write the product: 9 x 7 = ?', inputType: 'test' },
-            { question: 'Write the product: 14 x 2 = ?', inputType: 'test' },
-            { question: 'Write the product: 8 x 8 = ?', inputType: 'test' },
-            { question: 'Write the product: 12 x 5 = ?', inputType: 'test' },
-            { question: 'Write the product: 7 x 11 = ?', inputType: 'test' },
-            { question: 'Write the product: 15 x 4 = ?', inputType: 'test' },
-            { question: 'Write the product: 6 x 9 = ?', inputType: 'test' },
-            { question: 'Write the product: 10 x 10 = ?', inputType: 'test' },
-            { question: 'Write the product: 8 x 12 = ?', inputType: 'test' },
-            { question: 'Write the multiplier: 6 x ? = 36', inputType: 'test' },
-            { question: 'Write the multiplier: 8 x ? = 56', inputType: 'test' },
-            { question: 'Write the multiplier: 9 x ? = 72', inputType: 'test' },
-            { question: 'Write the multiplier: 5 x ? = 30', inputType: 'test' },
-            { question: 'Write the multiplier: 9 x ? = 81', inputType: 'test' },
-            { question: 'Write the multiplier: 11 x ? = 110', inputType: 'test' },
-            { question: 'Write the multiplier: 9 x ? = 45', inputType: 'test' },
-            { question: 'Write the multiplier: 8 x ? = 64', inputType: 'test' },
-            { question: 'Write the multiplier: 18 x ? = 90', inputType: 'test' },
-            { question: 'Write the multiplier: 6 x ? = 120', inputType: 'test' },
+            { question: 'On the right panel, click on the product of: <br/> 5 x 8 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/> 4 x 7 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/> 8 x 6 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/> 9 x 4 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/> 6 x 7 = ?', inputType: 'click' },
+            { question: 'Write below the product of: <br/> 4 x 3 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/> 5 x 5 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/> 7 x 9 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/> 8 x 8 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/> 10 x 6 = ?', inputType: 'text' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/> 42', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/> 36', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/> 54', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/> 64', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/> 60', inputType: 'click' },
+            { question: 'Write below the multiplier of: <br/> 5 x ? = 45', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/> 7 x ? = 56', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/> 9 x ? = 63', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/> 8 x ? = 72', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/> 9 x ? = 81', inputType: 'text' },
+            { question: 'Write below the product of: <br/> 13 x 3 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 9 x 7 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 14 x 2 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 8 x 8 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 12 x 5 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 7 x 11 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 15 x 4 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 6 x 9 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 10 x 10 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/> 8 x 12 = ?', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 6 x ? = 36', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 8 x ? = 56', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 9 x ? = 72', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 5 x ? = 30', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 9 x ? = 81', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 11 x ? = 110', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 9 x ? = 45', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 8 x ? = 64', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 18 x ? = 90', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/> 6 x ? = 120', inputType: 'test' },
             { question: 'Briefly describe your thoughts about the exercise, was it difficult/easy ? Did you help yourself with the table to solve the multiplication ? What was your thought process ?', inputType: 'test' },
             { question: '', inputType: 'final' },
         ];
@@ -259,6 +260,10 @@
                     result = inputField.data('value');
                 } else {
                     result = inputField.val();
+                    if (result.length == 0) {
+                        alert("Please fill in your answer before going to the next question.");
+                        return;
+                    }
                 }
             }
 
@@ -271,6 +276,7 @@
             currentSection++;
             clearPage();
             generateForm(questionsData[currentSection], currentSection);
+            $("#result-field").focus();
             startTime = performance.now();
         }
 
@@ -285,8 +291,8 @@
             const questionContainer = $('<div class="form-question"></div>');
 
             // Create heading
-            const heading = $('<h3></h3>').text(questionData.question);
-            questionContainer.append(heading);
+            const heading = '<h3>'+questionData.question+'</h3>';
+            questionContainer.append($(heading));
 
             // If experiment over, create and display final page
             if (questionData.inputType == 'final') {
@@ -312,8 +318,15 @@
                 return;
             }
 
+            // If experiment begins, show introduction page
+            if (questionData.inputType == 'introduction') {
+                questionContainer.append($('<div>Traditional multiplication relies on memorization: 2x2 equals 4, 2x3 equals 6. Yet, these results often lack intuitive meaning. We are trying to understand how to make learning multiplication more intuitive and meaningfull.</div><br/>'));
+                questionContainer.append($('<div>In this experiment, participants will solve multiplication problems with the help of either a standard multiplication table layout or a quantitative representation of the multiplication table. Please try to answer as fast as you can with the correct answer. Your swift answers will help us understand how to better teach multiplications.</div><br/>'));
+                questionContainer.append($('<div>Time to complete: 20 to 25 minutes.</div>'));
+            }
+
             // Create input
-            if (questionData.inputType == 'introduction' || questionData.inputType == 'text' || questionData.inputType == 'test') {
+            if (questionData.inputType == 'age' || questionData.inputType == 'text' || questionData.inputType == 'test') {
                 const label = $('<label></label>').text('Answer:');
                 questionContainer.append(label);
                 const input = $('<input type="text" id="result-field">');
@@ -373,7 +386,7 @@
             }
 
             // Create Next button
-            if (questionData.inputType == 'introduction' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno') {
+            if (questionData.inputType == 'introduction' || questionData.inputType == 'age' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno') {
                 const button = $('<button class="next-button">Next</button>').on('click', function () {
                     nextFormSection();
                 });
