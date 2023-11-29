@@ -189,6 +189,7 @@
 
     <script>
         const dropboxLink = "https://www.dropbox.com/request/ElySqE7dR6jQqtkzEKCZ";
+        const pepper = "nai-project";
         const maxTableSize = 12;
         const questionsData = [
             { question: 'Experiment: Upgrading the way multiplication is taught', inputType: 'introduction' },
@@ -196,46 +197,46 @@
             { question: 'What is your highest level of education?', inputType: 'degree' },
             { question: 'Did you study in STEM (science, technology, engineering, and mathematics)?', inputType: 'yesno' },
             { question: 'Look at the multiplication table, move your mouse across it and get familiar with it for the next minute.', inputType: 'discovery' },
-            { question: 'On the right panel, click on the product of: <br/> 5 x 8 = ?', inputType: 'click' },
-            { question: 'On the right panel, click on the product of: <br/> 4 x 7 = ?', inputType: 'click' },
-            { question: 'On the right panel, click on the product of: <br/> 8 x 6 = ?', inputType: 'click' },
-            { question: 'On the right panel, click on the product of: <br/> 9 x 4 = ?', inputType: 'click' },
-            { question: 'On the right panel, click on the product of: <br/> 6 x 7 = ?', inputType: 'click' },
-            { question: 'Write below the product of: <br/> 4 x 3 = ?', inputType: 'text' },
-            { question: 'Write below the product of: <br/> 5 x 5 = ?', inputType: 'text' },
-            { question: 'Write below the product of: <br/> 7 x 9 = ?', inputType: 'text' },
-            { question: 'Write below the product of: <br/> 8 x 8 = ?', inputType: 'text' },
-            { question: 'Write below the product of: <br/> 10 x 6 = ?', inputType: 'text' },
-            { question: 'On the right panel, click on the multiplication that equals to: <br/> 42', inputType: 'click' },
-            { question: 'On the right panel, click on the multiplication that equals to: <br/> 36', inputType: 'click' },
-            { question: 'On the right panel, click on the multiplication that equals to: <br/> 54', inputType: 'click' },
-            { question: 'On the right panel, click on the multiplication that equals to: <br/> 64', inputType: 'click' },
-            { question: 'On the right panel, click on the multiplication that equals to: <br/> 60', inputType: 'click' },
-            { question: 'Write below the multiplier of: <br/> 5 x ? = 45', inputType: 'text' },
-            { question: 'Write below the multiplier of: <br/> 7 x ? = 56', inputType: 'text' },
-            { question: 'Write below the multiplier of: <br/> 9 x ? = 63', inputType: 'text' },
-            { question: 'Write below the multiplier of: <br/> 8 x ? = 72', inputType: 'text' },
-            { question: 'Write below the multiplier of: <br/> 9 x ? = 81', inputType: 'text' },
-            { question: 'Write below the product of: <br/> 13 x 3 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 9 x 7 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 14 x 2 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 8 x 8 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 12 x 5 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 7 x 11 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 15 x 4 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 6 x 9 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 10 x 10 = ?', inputType: 'test' },
-            { question: 'Write below the product of: <br/> 8 x 12 = ?', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 6 x ? = 36', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 8 x ? = 56', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 9 x ? = 72', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 5 x ? = 30', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 9 x ? = 81', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 11 x ? = 110', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 9 x ? = 45', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 8 x ? = 64', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 18 x ? = 90', inputType: 'test' },
-            { question: 'Write below the multiplier of: <br/> 6 x ? = 120', inputType: 'test' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 5 x 8 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 4 x 7 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 8 x 6 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 9 x 4 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 6 x 7 = ?', inputType: 'click' },
+            { question: 'Write below the product of: <br/><br/> 4 x 3 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 5 x 5 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 7 x 9 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 8 x 8 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 10 x 6 = ?', inputType: 'text' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 42', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 36', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 54', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 64', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 60', inputType: 'click' },
+            { question: 'Write below the multiplier of: <br/><br/> 5 x ? = 45', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/><br/> 7 x ? = 56', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/><br/> 9 x ? = 63', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/><br/> 8 x ? = 72', inputType: 'text' },
+            { question: 'Write below the multiplier of: <br/><br/> 9 x ? = 81', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 13 x 3 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 9 x 7 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 14 x 2 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 8 x 8 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 12 x 5 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 7 x 11 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 15 x 4 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 6 x 9 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 10 x 10 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 8 x 12 = ?', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 6 x ? = 36', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 8 x ? = 56', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 9 x ? = 72', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 5 x ? = 30', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 9 x ? = 81', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 11 x ? = 110', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 9 x ? = 45', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 8 x ? = 64', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 18 x ? = 90', inputType: 'test' },
+            { question: 'Write below the multiplier of: <br/><br/> 6 x ? = 120', inputType: 'test' },
             { question: 'Briefly describe your thoughts about the exercise, was it difficult/easy ? Did you help yourself with the table to solve the multiplication ? What was your thought process ?', inputType: 'test' },
             { question: '', inputType: 'final' },
         ];
@@ -269,9 +270,7 @@
 
             // Save user data for the current section
             userData['Question' + currentSection] = { answer: result, time: (performance.now() - startTime) / 1000 };
-            // Save user data to cookies
-            console.log(userData);
-            
+
             // Start next question
             currentSection++;
             clearPage();
@@ -561,17 +560,46 @@
 
         // Function to convert object to JSON and trigger download
         function downloadResults() {
-            var jsonData = JSON.stringify(userData);
-            var blob = new Blob([jsonData], { type: 'application/json' });
-            var url = URL.createObjectURL(blob);
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = 'results.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            console.log(userData);
+            addHashField().then(function() {
+                var jsonData = JSON.stringify(userData);
+                var blob = new Blob([jsonData], { type: 'application/json' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = 'results.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
         }
+
+        // Add the hash of our results to be sure user didn't tamper with data
+        function addHashField() {
+            // Convert the object to a JSON string without formatting
+            var jsonString = JSON.stringify(userData, Object.keys(userData).sort());
+
+            // Add a "pepper" string to the JSON string
+            var jsonStringWithPepper = jsonString + pepper;
+
+            // Convert the JSON string to an ArrayBuffer
+            var encoder = new TextEncoder();
+            var data = encoder.encode(jsonStringWithPepper);
+
+            // Calculate the SHA-256 hash
+            return crypto.subtle.digest('SHA-256', data).then(function(hashBuffer) {
+                // Convert the hash buffer to a hex string
+                var hashArray = Array.from(new Uint8Array(hashBuffer));
+                var hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+                // Add the "hash" field to the original userData object
+                userData["hash"] = { answer: hashHex, time: 0.0 };
+            }).catch(function(error) {
+                console.error('Error calculating hash:', error);
+            });
+        }
+
     </script>
 </body>
 </html>
