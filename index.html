@@ -171,7 +171,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+<body id="body">
 
     <div class="container">
         <div id="form-container" class="form-container">
@@ -212,6 +212,11 @@
             { question: 'On the right panel, click on the product of: <br/><br/> 7 x 4 = ?', inputType: 'click' },
             { question: 'On the right panel, click on the product of: <br/><br/> 6 x 8 = ?', inputType: 'click' },
             { question: 'On the right panel, click on the product of: <br/><br/> 10 x 3 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 4 x 9 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 8 x 3 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 6 x 5 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 11 x 2 = ?', inputType: 'click' },
+            { question: 'On the right panel, click on the product of: <br/><br/> 7 x 8 = ?', inputType: 'click' },
             { question: 'Write below the product of: <br/><br/> 4 x 3 = ?', inputType: 'text' },
             { question: 'Write below the product of: <br/><br/> 5 x 5 = ?', inputType: 'text' },
             { question: 'Write below the product of: <br/><br/> 7 x 9 = ?', inputType: 'text' },
@@ -227,6 +232,11 @@
             { question: 'Write below the product of: <br/><br/> 7 x 6 = ?', inputType: 'text' },
             { question: 'Write below the product of: <br/><br/> 5 x 10 = ?', inputType: 'text' },
             { question: 'Write below the product of: <br/><br/> 3 x 8 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 10 x 7 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 4 x 6 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 8 x 5 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 2 x 9 = ?', inputType: 'text' },
+            { question: 'Write below the product of: <br/><br/> 6 x 8 = ?', inputType: 'text' },
             { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 42', inputType: 'click' },
             { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 54', inputType: 'click' },
             { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 64', inputType: 'click' },
@@ -242,6 +252,11 @@
             { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 25', inputType: 'click' },
             { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 18', inputType: 'click' },
             { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 32', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 15', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 21', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 40', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 56', inputType: 'click' },
+            { question: 'On the right panel, click on the multiplication that equals to: <br/><br/> 10', inputType: 'click' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 45', inputType: 'text' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 56', inputType: 'text' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 63', inputType: 'text' },
@@ -253,10 +268,15 @@
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 60', inputType: 'text' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 64', inputType: 'text' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 18', inputType: 'text' },
-{ question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 30', inputType: 'text' },
-{ question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 42', inputType: 'text' },
-{ question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 14', inputType: 'text' },
-{ question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 24', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 30', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 42', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 14', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 24', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 90', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 15', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 50', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 21', inputType: 'text' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 33', inputType: 'text' },
             { question: 'Write below the product of: <br/><br/> 13 x 3 = ?', inputType: 'test' },
             { question: 'Write below the product of: <br/><br/> 9 x 7 = ?', inputType: 'test' },
             { question: 'Write below the product of: <br/><br/> 14 x 2 = ?', inputType: 'test' },
@@ -267,6 +287,16 @@
             { question: 'Write below the product of: <br/><br/> 6 x 9 = ?', inputType: 'test' },
             { question: 'Write below the product of: <br/><br/> 10 x 10 = ?', inputType: 'test' },
             { question: 'Write below the product of: <br/><br/> 8 x 12 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 11 x 6 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 5 x 9 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 16 x 2 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 7 x 7 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 14 x 4 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 6 x 8 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 9 x 12 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 13 x 5 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 10 x 11 = ?', inputType: 'test' },
+            { question: 'Write below the product of: <br/><br/> 8 x 9 = ?', inputType: 'test' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 36', inputType: 'test' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 56', inputType: 'test' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 72', inputType: 'test' },
@@ -277,7 +307,20 @@
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 64', inputType: 'test' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 90', inputType: 'test' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 120', inputType: 'test' },
-            { question: 'Briefly describe your thoughts about the exercise, was it difficult/easy ? Did you help yourself with the table to solve the multiplication ? What was your thought process ?', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 24', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 42', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 63', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 88', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 48', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 99', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 12', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 21', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 52', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 77', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 32', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 18', inputType: 'test' },
+            { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 35', inputType: 'test' },
+            { question: 'Briefly describe your thoughts about the exercise, was it difficult/easy ? Did you help yourself with the table to solve the multiplication ? What was your thought process ?', inputType: 'feedback' },
             { question: '', inputType: 'final' },
         ];
 
@@ -386,6 +429,27 @@
                 questionContainer.append(input);
             }
 
+            if (questionData.inputType == 'feedback') {
+                const label = $('<label></label>').text('Answer:');
+
+                // Set the CSS display property to make the label a block element
+                label.css('display', 'block');
+
+                questionContainer.append(label);
+
+                // Use <textarea> directly without a <div>
+                const textarea = $('<textarea id="result-field"></textarea>');
+
+                // Set the number of rows for the textarea
+                textarea.attr('rows', '8');
+
+                // Set CSS property to make the width auto
+                textarea.css('width', '100%');
+                textarea.css('display', 'block');
+
+                questionContainer.append(textarea);
+            }
+
             if (questionData.inputType == 'degree') {
                 const labelContainer = $('<div></div>');
                 const selectContainer = $('<div></div>');
@@ -425,10 +489,18 @@
             }
 
             // Create Next button
-            if (questionData.inputType == 'introduction' || questionData.inputType == 'age' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno') {
-                const button = $('<button class="next-button">Next</button>').on('click', function () {
+            if (questionData.inputType == 'introduction' || questionData.inputType == 'age' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno' || questionData.inputType == 'feedback') {
+                const button = $('<button id="next-button" class="next-button">Next</button>').on('click', function () {
                     nextFormSection();
                 });
+                
+                // Add listener to go next when enter is pressed
+                document.getElementById('body').onkeypress=function(e){
+                    if(e.keyCode==13 && document.getElementById('next-button')){
+                        document.getElementById('next-button').click();
+                    }
+                }
+
                 questionContainer.append(button);
             }
 
