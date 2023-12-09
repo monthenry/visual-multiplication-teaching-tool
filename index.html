@@ -321,6 +321,7 @@
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 18', inputType: 'test' },
             { question: 'Write below the multiplication giving:<br/><small>(format: "number_1 x number_2")</small> <br/><br/> ? x ? = 35', inputType: 'test' },
             { question: 'Briefly describe your thoughts about the exercise, was it difficult/easy ? Did you help yourself with the table to solve the multiplication ? What was your thought process ?', inputType: 'feedback' },
+            { question: 'If you want a summary of the experiment or are interested in getting psy credits, please answer the <a href="https://projectnia.limesurvey.net/284432?lang=en" target="_blank">following form</a>. <br/>Your experiment results will remain anonymous.', inputType: 'form'},
             { question: '', inputType: 'final' },
         ];
 
@@ -489,7 +490,7 @@
             }
 
             // Create Next button
-            if (questionData.inputType == 'introduction' || questionData.inputType == 'age' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno' || questionData.inputType == 'feedback') {
+            if (questionData.inputType == 'introduction' || questionData.inputType == 'form' || questionData.inputType == 'age' || questionData.inputType == 'discovery' || questionData.inputType == 'text' || questionData.inputType == 'test' || questionData.inputType == 'degree' || questionData.inputType == 'yesno' || questionData.inputType == 'feedback') {
                 const button = $('<button id="next-button" class="next-button">Next</button>').on('click', function () {
                     nextFormSection();
                 });
