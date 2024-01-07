@@ -366,7 +366,10 @@
                     } else if (questionsData[currentSection].inputType === 'multiplication' || questionsData[currentSection].inputType === 'multiplication1') {
                         userAnswer = inputField.val();
                         // Adjust the split logic to handle inputs without spaces
-                        let numbers = userAnswer.includes(' x ') ? userAnswer.split(' x ') : userAnswer.split('x');
+                        let numbers = userAnswer.includes(' x ') ? userAnswer.split(' x ') :
+                           userAnswer.includes(' * ') ? userAnswer.split(' * ') :
+                           userAnswer.includes('*') ? userAnswer.split('*') :
+                           userAnswer.includes('x') ? userAnswer.split('x') : [userAnswer];
                         if (numbers.length === 2) {
                             let product = parseInt(numbers[0].trim()) * parseInt(numbers[1].trim());
                             isCorrect = product === parseInt(correctAnswer);
