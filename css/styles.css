@@ -1,0 +1,186 @@
+/* Handle page organization */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.navbar {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.result-container {
+    width: 100%;
+    min-width: 25%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.form-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    width: 25%;
+}
+
+.form-question {
+    margin-bottom: 15px;
+}
+
+.form-question input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.next-button, .save-button, .upload-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 10px 20px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Handle table appearance */
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+#table-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+#experimental-table {
+    width: 90%;
+    height: 90%;
+    max-width: 800px;
+    max-height: 800px;
+    table-layout: fixed;
+    border-spacing: 0;
+}
+
+.inner-table {
+    margin: 20px;
+}
+
+.result-box {
+    text-align: center;
+    border: 2px solid blue;
+    padding: 20px;
+    width: 75%;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
+
+#table-type-button {
+    font-size: 16px;
+    padding: 15px 30px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#table-type-button:hover {
+    background-color: #0056b3;
+}
+
+.table-type-button-container {
+    text-align: center;
+}
+
+.multiplication-table {
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+.multiplication-table th, .multiplication-table td {
+    border: 1px solid black;
+    text-align: center;
+    width: 15vw;
+    height: 20px;
+}
+
+/* Handle rows and columns border thickness */
+.bold-column {
+    border-right-width: 3px;
+}
+
+.bold-row {
+    border-top-width: 3px;
+}
+
+.bolder-column {
+    border-right-width: 4px;
+    border-left-width: 3px;
+    color: blue;
+    font-weight: bolder;
+}
+
+.bolder-row {
+    border-top-width: 4px;
+    border-bottom-width: 3px;
+    color: blue;
+    font-weight: bolder;
+}
+
+/* Handle highlight area over table */
+.highlight {
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+
+.final-score {
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 0; /* At the bottom of the page */
+    left: 0; /* On the left side of the page */
+    background-color: white; /* Background color */
+    padding: 10px; /* Some padding around the text */
+    font-size: 1em; /* Appropriate font size */
+    color: #007bff; /* Text color */
+    width: 100%; /* Full width to accommodate content */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for better visibility */
+}
+
+.time-exceeded-alert {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 50%; /* At the middle of the page vertically */
+    left: 0; /* On the left side of the page */
+    transform: translateY(-50%); /* Center it vertically */
+    background-color: #ff0000; /* Red background for visibility */
+    color: white; /* White text color */
+    padding: 10px; /* Some padding around the text */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+    display: none; /* Hide it by default */
+    z-index: 1000; /* Make sure it's on top of other elements */
+}
